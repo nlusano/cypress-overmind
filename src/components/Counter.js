@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { useAppState, useActions } from "../overmind";
 
-const Counter = () => {
-  // const [count, setCount] = useState(0);
+const CounterOvermind = () => {
   const { count } = useAppState();
   const { decrement, increment } = useActions();
 
   return (
     <div>
-      <button onClick={decrement}>-</button>
-      {count}
-      <button onClick={increment}>+</button>
+      <button data-cy="decrement" onClick={decrement}>
+        -
+      </button>
+      <span data-cy="counter">{count}</span>
+      <button data-cy="increment" onClick={increment}>
+        +
+      </button>
     </div>
   );
 };
 
-export default Counter;
+export default CounterOvermind;
