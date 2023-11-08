@@ -16,7 +16,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "cy:open": "cypress open",
+    "cy:open": "cypress open --component",
+    "cy:spec": "cypress run --component --browser chrome --headless --spec",
     "dev": "concurrently \"overmind-devtools\" \"react-scripts start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
