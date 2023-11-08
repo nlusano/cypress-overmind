@@ -1,9 +1,15 @@
 import * as React from "react";
-import Component from "./components/Component";
+import CounterReact from "./components/CounterReact";
 import "./App.css";
+import CounterOvermind from "./components/CounterOvermind";
 
 const App = () => {
-  return <Component />;
+  return (
+    <div>
+      <CounterReact />
+      <CounterOvermind />
+    </div>
+  );
 };
 
 export default App;
