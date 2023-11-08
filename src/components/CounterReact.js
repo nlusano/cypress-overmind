@@ -17,7 +17,7 @@ const CounterReact = (props) => {
 
   return (
     <div>
-      <span data-cy="greeter">{`Hello ${name}!!`}</span>
+      <span data-cy="greeter">{`Hello ${name}! Try this awesome react counter`}</span>
       <button data-cy="decrement" onClick={handleDecrement}>
         -
       </button>
