@@ -1,7 +1,6 @@
 import { derived } from "overmind";
 
 export const state = {
-  // title: "My App",
   count: 0,
   todos: [
     { id: 1, title: "Create tiny project", isDone: true },
