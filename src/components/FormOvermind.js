@@ -35,7 +35,7 @@ const FormOvermind = () => {
       </form>
       {!form.isValid && (
         <div id="validation" name="validation">
-          {"Could not submit"}
+          {form.validationErr}
         </div>
       )}
     </>
