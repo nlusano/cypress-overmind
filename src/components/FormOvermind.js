@@ -32,12 +32,18 @@ const FormOvermind = () => {
         <br />
         <br />
         <input type="submit" value="Submit" onClick={() => validateForm()} />
+        <br />
+        <br />
+        {!form.isValid && (
+          <>
+            <label>Validation error:</label>
+            <br />
+            <div id="validation" name="validation">
+              {form.validationErr}
+            </div>
+          </>
+        )}
       </form>
-      {!form.isValid && (
-        <div id="validation" name="validation">
-          {form.validationErr}
-        </div>
-      )}
     </>
   );
 };
