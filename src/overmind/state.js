@@ -6,4 +6,9 @@ export const state = {
     { id: 2, title: "Add cypress to the project" },
     { id: 3, title: "Play around with component testing" },
   ],
+  form: {
+    fname: "",
+    lname: "",
+    isValid: true,
+  },
 };
