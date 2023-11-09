@@ -19,3 +19,7 @@ export const validateForm = ({ state }) => {
 
   return null;
 };
+
+export const toggleFilter = ({ state }) => {
+  state.showAllTodos = !state.showAllTodos;
+};
