@@ -56,7 +56,6 @@ describe("<Todos />", () => {
         expect($li).to.have.length(todoList.length);
       })
       .each(($li, index) => {
-        // cy.wrap($li).should("have.text", todoList[index].title);
         expect($li).to.contain.text(todoList[index].title);
       });
   });
