@@ -16,6 +16,7 @@ describe("<FormOvermind />", () => {
         <FormOvermind />
       </Provider>
     );
+    cy.get("div#validation").should("not.exist");
   });
 
   it("should display validation err message if click on submit with empty form", () => {
