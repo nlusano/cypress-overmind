@@ -18,6 +18,7 @@ const Todos = () => {
         type="checkbox"
         id="checkbox"
         name="checkbox"
+        checked={!state.showAllTodos}
         onClick={() => handleToggle()}
       />
       <ul>
