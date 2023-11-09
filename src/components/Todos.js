@@ -1,16 +1,31 @@
 import * as React from "react";
-import { useAppState } from "../overmind";
+import { useActions, useAppState } from "../overmind";
 import Todo from "./Todo";
 
 const Todos = () => {
   const state = useAppState();
+  const { toggleFilter } = useActions();
+
+  const handleToggle = () => {
+    toggleFilter();
+  };
 
   return (
-    <ul>
-      {Object.keys(state.todos).map((id) => (
-        <Todo key={id} id={id} />
-      ))}
-    </ul>
+    <div id="todolist">
+      <h3>Todo list:</h3>
+      <label>See pending only</label>
+      <input
+        type="checkbox"
+        id="checkbox"
+        name="checkbox"
+        onClick={() => handleToggle()}
+      />
+      <ul>
+        {Object.keys(state.todosList).map((id) => (
+          <Todo key={id} id={id} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
