@@ -10,5 +10,6 @@ export const state = {
     fname: "",
     lname: "",
     isValid: true,
+    validationErr: "",
   },
 };
