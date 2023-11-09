@@ -42,7 +42,6 @@ describe("<Todos />", () => {
       .should("not.be.checked")
       .check()
       .should("be.checked");
-    // cy.get("li").should("have.length", 1).and("have.text", "Go for a walk");
     cy.get("li").should(($li) => {
       expect($li).to.have.length(1);
       expect($li).to.have.text("Go for a walk");
@@ -51,7 +50,6 @@ describe("<Todos />", () => {
       .should("be.checked")
       .uncheck()
       .should("not.be.checked");
-    // cy.get("li").should("have.length", 3);
     cy.get("li").should(($li) => {
       expect($li).to.have.length(3);
 
