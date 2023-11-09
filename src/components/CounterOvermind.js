@@ -7,9 +7,6 @@ const CounterOvermind = () => {
 
   return (
     <div>
-      <span data-cy="overmind-greeter">
-        {"Hi there! Try this beautiful overmind counter"}
-      </span>
       <button data-cy="overmind-decrement" onClick={decrement}>
         -
       </button>
