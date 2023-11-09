@@ -4,21 +4,7 @@ import { config } from "../overmind";
 import FormOvermind from "./FormOvermind";
 
 describe("<FormOvermind />", () => {
-  // beforeEach(() => {
-  //   const overmind = createOvermindMock(config, (state) => {
-  //     state.form.fname = "";
-  //     state.form.lname = "";
-  //     state.form.isValid = true;
-  //   });
-
-  //   cy.mount(
-  //     <Provider value={overmind}>
-  //       <FormOvermind />
-  //     </Provider>
-  //   );
-  // })
-
-  it("should display validation err message if click on submit with empty form", () => {
+  beforeEach(() => {
     const overmind = createOvermindMock(config, (state) => {
       state.form.fname = "";
       state.form.lname = "";
@@ -30,6 +16,9 @@ describe("<FormOvermind />", () => {
         <FormOvermind />
       </Provider>
     );
+  });
+
+  it("should display validation err message if click on submit with empty form", () => {
     cy.get('input[type="submit"]').click();
     cy.get("div#validation")
       .should("be.visible")
@@ -37,17 +26,6 @@ describe("<FormOvermind />", () => {
   });
 
   it("should display validation err message if click on submit with empty first name", () => {
-    const overmind = createOvermindMock(config, (state) => {
-      state.form.fname = "";
-      state.form.lname = "";
-      state.form.isValid = true;
-    });
-
-    cy.mount(
-      <Provider value={overmind}>
-        <FormOvermind />
-      </Provider>
-    );
     cy.get("input#lname").type("Surname");
     cy.get('input[type="submit"]').click();
 
@@ -57,17 +35,6 @@ describe("<FormOvermind />", () => {
   });
 
   it("should display validation err message if click on submit with empty last name", () => {
-    const overmind = createOvermindMock(config, (state) => {
-      state.form.fname = "";
-      state.form.lname = "";
-      state.form.isValid = true;
-    });
-
-    cy.mount(
-      <Provider value={overmind}>
-        <FormOvermind />
-      </Provider>
-    );
     cy.get("input#fname").type("Name");
     cy.get('input[type="submit"]').click();
     cy.get("div#validation")
