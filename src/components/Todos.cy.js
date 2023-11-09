@@ -4,13 +4,14 @@ import { config } from "../overmind";
 import Todos from "./Todos";
 
 describe("<Todos />", () => {
+  const todoList = [
+    { id: 1, title: "Water the plants", isDone: true },
+    { id: 2, title: "Do the dishes", isDone: true },
+    { id: 3, title: "Go for a walk", isDone: false },
+  ];
   beforeEach(() => {
     const overmind = createOvermindMock(config, (state) => {
-      state.todos = [
-        { id: 1, title: "Water the plants", isDone: true },
-        { id: 2, title: "Do the dishes", isDone: true },
-        { id: 3, title: "Go for a walk", isDone: false },
-      ];
+      state.todos = todoList;
       state.todosList = derived((state) => {
         const list = state.showAllTodos
           ? state.todos
@@ -50,12 +51,13 @@ describe("<Todos />", () => {
       .should("be.checked")
       .uncheck()
       .should("not.be.checked");
-    cy.get("li").should(($li) => {
-      expect($li).to.have.length(3);
-
-      expect($li[0]).to.contain("Water the plants");
-      expect($li[1]).to.contain("Do the dishes");
-      expect($li[2]).to.contain("Go for a walk");
-    });
+    cy.get("li")
+      .then(($li) => {
+        expect($li).to.have.length(todoList.length);
+      })
+      .each(($li, index) => {
+        // cy.wrap($li).should("have.text", todoList[index].title);
+        expect($li).to.contain.text(todoList[index].title);
+      });
   });
 });
