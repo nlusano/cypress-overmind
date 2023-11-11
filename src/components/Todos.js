@@ -20,6 +20,7 @@ const Todos = () => {
         name="checkbox"
         checked={!state.showAllTodos}
         onClick={() => handleToggle()}
+        readOnly
       />
       <ul>
         {Object.keys(state.todosList).map((id) => (
