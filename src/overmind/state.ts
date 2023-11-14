@@ -1,6 +1,29 @@
 import { derived } from "overmind";
 
-export const state = {
+export type AppState = {
+  count: number;
+  todos: {
+    id: number;
+    title: string;
+    isDone: boolean;
+  }[];
+  todosList: {
+    [id: number]: {
+      id: number;
+      title: string;
+      isDone: boolean;
+    };
+  };
+  showAllTodos: boolean;
+  form: {
+    fname: string;
+    lname: string;
+    isValid: boolean;
+    validationErr: string;
+  };
+};
+
+export const state: AppState = {
   count: 0,
   todos: [
     { id: 1, title: "Create tiny project", isDone: true },
@@ -10,7 +33,7 @@ export const state = {
     { id: 5, title: "Wash dishes", isDone: false },
     { id: 6, title: "Study docs", isDone: true },
   ],
-  todosList: derived((state) => {
+  todosList: derived((state: AppState) => {
     const list = state.showAllTodos
       ? state.todos
       : state.todos.filter((todo) => !todo.isDone);

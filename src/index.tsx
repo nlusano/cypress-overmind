@@ -6,12 +6,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 const overmind = createOvermind(config);
 
 root.render(
   <Provider value={overmind}>
     <App />
-  </Provider>,
-  document.querySelector("#app")
+  </Provider>
 );

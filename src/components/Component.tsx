@@ -1,6 +1,6 @@
 import React from "react";
 
-const Component = () => {
+const Component: React.FC = () => {
   return <div data-cy="test">Hello</div>;
 };
 

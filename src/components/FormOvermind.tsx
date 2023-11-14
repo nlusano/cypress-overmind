@@ -16,7 +16,7 @@ const FormOvermind = () => {
           name="fname"
           value={form.fname}
           required
-          onChange={(e) => setFNameValue(e.target.value)}
+          onChange={(e) => setFNameValue({ val: e.target.value })}
         />
         <br />
         <label>Last name:</label>
@@ -27,7 +27,7 @@ const FormOvermind = () => {
           name="lname"
           value={form.lname}
           required
-          onChange={(e) => setLNameValue(e.target.value)}
+          onChange={(e) => setLNameValue({ val: e.target.value })}
         />
         <br />
         <br />
@@ -38,9 +38,7 @@ const FormOvermind = () => {
           <>
             <label>Validation error:</label>
             <br />
-            <div id="validation" name="validation">
-              {form.validationErr}
-            </div>
+            <div id="validation">{form.validationErr}</div>
           </>
         )}
       </form>

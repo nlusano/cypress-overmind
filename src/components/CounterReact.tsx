@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CounterReact = (props) => {
+const CounterReact = (props: any) => {
   const { name = "user", initialCount = 0, onChange = () => {} } = props;
   const [count, setCount] = useState(initialCount);
 
