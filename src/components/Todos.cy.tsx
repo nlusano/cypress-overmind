@@ -1,4 +1,4 @@
-import { createOvermindMock, derived } from "overmind";
+import { createOvermindMock } from "overmind";
 import { Provider } from "overmind-react";
 import React from "react";
 import { config } from "../overmind";
@@ -13,18 +13,6 @@ describe("<Todos /> testing toggle logic in one go", () => {
   beforeEach(() => {
     const overmind = createOvermindMock(config, (state) => {
       state.todos = todoList;
-      state.todosList = derived((state) => {
-        const list = state.showAllTodos
-          ? state.todos
-          : state.todos.filter((todo) => !todo.isDone);
-        return list.reduce(
-          (obj, i) => ({
-            ...obj,
-            [i.id]: i,
-          }),
-          {}
-        );
-      });
       state.showAllTodos = true;
     });
 
@@ -76,18 +64,6 @@ describe("<Todos /> testing check/uncheck separately by updating initial state v
   beforeEach(() => {
     const overmind = createOvermindMock(config, (state) => {
       state.todos = todoList;
-      state.todosList = derived((state) => {
-        const list = state.showAllTodos
-          ? state.todos
-          : state.todos.filter((todo) => !todo.isDone);
-        return list.reduce(
-          (obj, i) => ({
-            ...obj,
-            [i.id]: i,
-          }),
-          {}
-        );
-      });
       state.showAllTodos = true;
     });
 
@@ -110,18 +86,6 @@ describe("<Todos /> testing check/uncheck separately by updating initial state v
   it("should filter the list when checking the checkbox", () => {
     const overmind = createOvermindMock(config, (state) => {
       state.todos = todoList;
-      state.todosList = derived((state) => {
-        const list = state.showAllTodos
-          ? state.todos
-          : state.todos.filter((todo) => !todo.isDone);
-        return list.reduce(
-          (obj, i) => ({
-            ...obj,
-            [i.id]: i,
-          }),
-          {}
-        );
-      });
       state.showAllTodos = true;
     });
 
@@ -144,18 +108,6 @@ describe("<Todos /> testing check/uncheck separately by updating initial state v
   it("should unfilter the list filter when unchecking the checkbox", () => {
     const overmind = createOvermindMock(config, (state) => {
       state.todos = todoList;
-      state.todosList = derived((state) => {
-        const list = state.showAllTodos
-          ? state.todos
-          : state.todos.filter((todo) => !todo.isDone);
-        return list.reduce(
-          (obj, i) => ({
-            ...obj,
-            [i.id]: i,
-          }),
-          {}
-        );
-      });
       state.showAllTodos = true; // set initial state
     });
     overmind.actions.toggleFilter(); // check via actions instead of UI
