@@ -1,5 +1,6 @@
 import { createOvermindMock } from "overmind";
 import { Provider } from "overmind-react";
+import React from "react";
 import { config } from "../overmind";
 import FormOvermind from "./FormOvermind";
 
