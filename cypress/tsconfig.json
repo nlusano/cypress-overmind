@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom", "es2021"],
+    "types": ["cypress", "node"],
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "baseUrl": "../src"
+  },
+  "extends": "../tsconfig.json",
+  "include": ["**/*.ts"]
+}
